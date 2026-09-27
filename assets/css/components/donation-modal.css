@@ -1,0 +1,165 @@
+/* ==========================================================================
+   Part 1: Outer Page & Modal Styling (Lato Font)
+   ========================================================================== */
+
+/* Load Lato Font */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+/* 1. Modal Container */
+.bizim-modal { 
+  position: fixed !important; 
+  inset: 0 !important; 
+  width: 100vw !important; 
+  height: 100vh !important; 
+  z-index: 999999 !important; 
+  display: flex !important; 
+  align-items: center !important; 
+  justify-content: center !important; 
+  opacity: 0 !important; 
+  visibility: hidden !important; 
+  pointer-events: none !important; 
+  transition: opacity 0.25s ease, visibility 0.25s ease !important; 
+  font-family: 'Lato', sans-serif !important;
+}
+
+.bizim-modal.is-open { 
+  opacity: 1 !important; 
+  visibility: visible !important; 
+  pointer-events: auto !important; 
+}
+
+.bizim-modal-overlay { 
+  position: absolute !important; 
+  inset: 0 !important; 
+  background: rgba(15, 23, 42, 0.65) !important; 
+  backdrop-filter: blur(8px) !important; 
+  -webkit-backdrop-filter: blur(8px) !important; 
+  z-index: 1 !important; 
+}
+
+/* Modal Box - Reduced top padding removes empty space above iframe */
+.bizim-modal-box { 
+  position: relative !important; 
+  z-index: 2 !important; 
+  width: 92% !important; 
+  max-width: 520px !important; 
+  height: auto !important; 
+  max-height: 88vh !important; 
+  background: #ffffff !important; 
+  border: none !important;
+  border-radius: 20px !important; 
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35) !important; 
+  padding: 20px 20px 20px 20px !important; /* Fixed tight top padding */
+  overflow-y: auto !important; 
+  -webkit-overflow-scrolling: touch; 
+  transform: scale(0.94) translateY(12px) !important; 
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important; 
+  font-family: 'Lato', sans-serif !important;
+  box-sizing: border-box !important;
+}
+
+.bizim-modal.is-open .bizim-modal-box { 
+  transform: scale(1) translateY(0) !important; 
+}
+
+/* 2. Standalone Close Button (Clean Top-Right Corner) */
+.bizim-modal-close { 
+  position: absolute !important; 
+  top: 12px !important; 
+  right: 12px !important; 
+  width: 28px !important; 
+  height: 28px !important; 
+  border: 0 !important; 
+  background-color: #f1f5f9 !important; 
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23244594' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M84.707,68.752L65.951,49.998l18.75-18.752c0.777-0.777,0.777-2.036,0-2.813L71.566,15.295c-0.777-0.777-2.037-0.777-2.814,0L49.999,34.047l-18.75-18.752c-0.746-0.747-2.067-0.747-2.814,0L15.297,28.431c-0.373,0.373-0.583,0.88-0.583,1.407c0,0.527,0.21,1.034,0.583,1.407L34.05,49.998L15.294,68.753c-0.373,0.374-0.583,0.88-0.583,1.407c0,0.528,0.21,1.035,0.583,1.407l13.136,13.137c0.373,0.373,0.881,0.583,1.41,0.583c0.525,0,1.031-0.21,1.404-0.583l18.755-18.755l18.756,18.754c0.389,0.388,0.896,0.583,1.407,0.583c0.511,0,1.019-0.195,1.408-0.583l13.138-13.137C85.484,70.789,85.484,69.53,84.707,68.752z'/></svg>") !important; 
+  background-repeat: no-repeat !important; 
+  background-position: center !important; 
+  background-size: 12px 12px !important; 
+  border-radius: 50% !important; 
+  cursor: pointer !important; 
+  z-index: 100 !important; 
+  font-family: 'Lato', sans-serif !important;
+  font-size: 0 !important; 
+  line-height: 0 !important;
+  color: transparent !important;
+  transition: background-color 0.15s ease !important; 
+}
+
+.bizim-modal-close:hover { 
+  background-color: #e2e8f0 !important; 
+}
+
+body.bizim-modal-open {
+  padding-right: var(--bizim-scrollbar, 0px) !important; 
+  overflow: hidden !important; 
+}
+
+/* 3. Outer Container & Dynamic Height Boundaries */
+.bizim-give-form,
+.bizim-modal-form {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  font-family: 'Lato', sans-serif !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.bizim-give-form iframe,
+.bizim-modal-form iframe, 
+.bizim-modal-form givewp-donation-form, 
+.bizim-modal-form [data-givewp-embed],
+#give-form-shortcode-1,
+iframe[id^="give-form-shortcode-"] { 
+  width: 100% !important; 
+  min-width: 100% !important;
+  max-width: 100% !important;
+  border: 0 !important; 
+  display: block !important; 
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Loading state */
+.bizim-modal-form { 
+  position: relative !important; 
+  min-height: 400px !important; 
+}
+
+.bizim-modal-form::before { 
+  content: ""; 
+  position: absolute; 
+  inset: 0; 
+  margin: auto; 
+  width: 38px; 
+  height: 38px; 
+  border-radius: 50%; 
+  border: 3px solid #e2e8f0; 
+  border-top-color: #244594; 
+  animation: bizimSpin .8s linear infinite; 
+}
+
+.bizim-modal-form iframe { 
+  position: relative; 
+  z-index: 1; 
+}
+
+@keyframes bizimSpin { 
+  to { transform: rotate(360deg); } 
+}
+
+/* 4. Mobile Alignment Adjustments */
+@media (max-width: 768px) {
+  .bizim-modal {
+    align-items: flex-start !important;
+    padding-top: 12px !important;
+  }
+
+  .bizim-modal-box {
+    width: 95% !important;
+    max-height: 94vh !important;
+    margin: 0 auto !important;
+    padding: 16px 14px 14px 14px !important;
+  }
+}

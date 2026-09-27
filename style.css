@@ -1,0 +1,18 @@
+/*
+Theme Name: Bizim Eller Child
+Theme URI: https://bizim.2p-host.com
+Description: Bizim Eller child theme (Bricks) – houses all custom code: hero slider sync, Trust Indicators customizer and Bricks dynamic data.
+Author: Bizim Eller
+Template: bricks
+Version: 1.0.1
+Text Domain: bizim-child
+*/
+html, body {
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+#brxe-cmccuw, 
+#brxe-ofpcai {
+  min-width: 0 !important;
+}

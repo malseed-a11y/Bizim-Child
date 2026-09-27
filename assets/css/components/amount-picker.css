@@ -1,0 +1,293 @@
+/* ==========================================================================
+   Bizim Custom Form - GiveWP v3 Polished Design
+   ========================================================================== */
+
+/* Load Lato Font */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+/* Apply Lato Font Globally to Form Elements */
+.bizim-hd,
+.bizim-hd *,
+.bizim-hd *::before,
+.bizim-hd *::after {
+  font-family: 'Lato', sans-serif !important;
+  box-sizing: border-box !important;
+}
+
+/* 1. Main Container */
+.bizim-hd {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+/* 2. Form Title / Subtitle */
+.bizim-hd__title {
+  margin: 0 0 4px 0 !important;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #1f2937 !important;
+  text-align: left !important;
+  line-height: 1.3 !important;
+}
+
+/* 3. Amount Selection Grid */
+.bizim-hd__grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  align-items: stretch !important;
+}
+
+/* Amount Level Buttons */
+.bizim-hd__level {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 100% !important;
+  height: 38px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #f3f4f6 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #1f2937 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  outline: none !important;
+  text-align: center !important;
+}
+
+.bizim-hd__level:hover {
+  background: #e5e7eb !important;
+  color: #244594 !important;
+  transform: none !important;
+}
+
+.bizim-hd__level.is-selected,
+.bizim-hd__level[aria-checked="true"] {
+  background: #244594 !important;
+  border: none !important;
+  color: #ffffff !important;
+}
+
+/* 4. Custom Amount Input Container */
+.bizim-hd__custom {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  width: 100% !important;
+  height: 42px !important;
+  background: #f9fafb !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  padding: 0 12px !important;
+  margin-top: 2px !important;
+  margin-bottom: 2px !important;
+  transition: all 0.2s ease !important;
+}
+
+.bizim-hd__custom:focus-within {
+  border-color: #244594 !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.bizim-hd__symbol {
+  font-family: 'Lato', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #6b7280 !important;
+}
+
+.bizim-hd__input {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+  outline: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 13px !important;
+  color: #374151 !important;
+}
+
+.bizim-hd__input::-webkit-outer-spin-button,
+.bizim-hd__input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
+.bizim-hd__input[type="number"] {
+  -moz-appearance: textfield !important;
+}
+
+/* 5. Submit Button (Animated Heart Style) */
+.bizim-hd__submit {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  position: relative !important;
+  width: 100% !important;
+  background-color: #f1b827 !important;
+  color: #244594 !important;
+  border-radius: 16px !important;
+  padding: 14px 26px !important;
+  margin-top: 4px !important;
+  margin-bottom: 2px !important;
+  font-family: 'Lato', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 1.4rem !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+              box-shadow 0.3s ease,
+              background-color 0.3s ease !important;
+}
+
+/* SVG Heart via ::after Pseudoelement */
+.bizim-hd__submit::after {
+  content: "" !important;
+  display: inline-block !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  -webkit-mask-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cgo8IS0tIExpY2Vuc2U6IFBELiBNYWRlIGJ5IHBhb21lZGlhOiBodHRwczovL2dpdGh1Yi5jb20vcGFvbWVkaWEvc21hbGwtbi1mbGF0IC0tPgo8c3ZnIHdpZHRoPSI4MDBweCIgaGVpZ2h0PSI4MDBweCIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPgogPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtMTAyOC40KSI+CiAgPHBhdGggZD0ibTcgMTAzMS40Yy0xLjUzNTUgMC0zLjA3ODQgMC41LTQuMjUgMS43LTIuMzQzMSAyLjQtMi4yNzg4IDYuMSAwIDguNWw5LjI1IDkuOCA5LjI1LTkuOGMyLjI3OS0yLjQgMi4zNDMtNi4xIDAtOC41LTIuMzQzLTIuMy02LjE1Ny0yLjMtOC41IDBsLTAuNzUgMC44LTAuNzUtMC44Yy0xLjE3Mi0xLjItMi43MTQ1LTEuNy00LjI1LTEuN3oiIGZpbGw9IiNlNzRjM2MiLz4KIDwvZz4KPC9zdmc+') !important;
+  mask-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cgo8IS0tIExpY2Vuc2U6IFBELiBNYWRlIGJ5IHBhb21lZGlhOiBodHRwczovL2dpdGh1Yi5jb20vcGFvbWVkaWEvc21hbGwtbi1mbGF0IC0tPgo8c3ZnIHdpZHRoPSI4MDBweCIgaGVpZ2h0PSI4MDBweCIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPgogPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtMTAyOC40KSI+CiAgPHBhdGggZD0ibTcgMTAzMS40Yy0xLjUzNTUgMC0zLjA3ODQgMC41LTQuMjUgMS43LTIuMzQzMSAyLjQtMi4yNzg4IDYuMSAwIDguNWw5LjI1IDkuOCA5LjI1LTkuOGMyLjI3OS0yLjQgMi4zNDMtNi4xIDAtOC41LTIuMzQzLTIuMy02LjE1Ny0yLjMtOC41IDBsLTAuNzUgMC44LTAuNzUtMC44Yy0xLjE3Mi0xLjItMi43MTQ1LTEuNy00LjI1LTEuN3oiIGZpbGw9IiNlNzRjM2MiLz4KIDwvZz4KPC9zdmc+') !important;
+  -webkit-mask-size: contain !important;
+  mask-size: contain !important;
+  -webkit-mask-repeat: no-repeat !important;
+  mask-repeat: no-repeat !important;
+  -webkit-mask-position: center !important;
+  mask-position: center !important;
+  background-color: #244594 !important;
+  transition: background-color 0.3s ease, transform 0.3s ease !important;
+  transform-origin: center !important;
+}
+
+/* Button Hover State */
+.bizim-hd__submit:hover {
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2) !important;
+  filter: brightness(1.08) !important;
+}
+
+/* Heart Animation & Color Shift on Hover */
+.bizim-hd__submit:hover::after {
+  background-color: #ff4757 !important;
+  animation: heartbeat 1.2s infinite ease-in-out !important;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.25); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.25); }
+  70% { transform: scale(1); }
+}
+
+/* 6. Footer Secure Badge (GiveWP Style) */
+.bizim-hd__secure {
+  margin-top: 4px !important;
+  margin-bottom: 0 !important;
+  padding: 6px 10px !important;
+  background: #eff6ff !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  color: #1e40af !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+}
+
+.bizim-hd__secure::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 12px !important;
+  height: 12px !important;
+  background-color: #1e40af !important;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z'/%3E%3C/svg%3E") no-repeat center / contain !important;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z'/%3E%3C/svg%3E") no-repeat center / contain !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .bizim-hd__grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+  }
+
+  .bizim-hd__level {
+    height: 36px !important;
+    font-size: 12px !important;
+  }
+
+  .bizim-hd__submit {
+    padding: 12px 10px !important;
+    font-size: 1.1rem !important;
+  }
+}
+
+/* ==========================================================================
+   Page variant - the picker sitting inside the white card on a single
+   campaign, where there is far more room than in the hero slider.
+   ========================================================================== */
+.bizim-hd--page { gap: 14px !important; }
+
+.bizim-hd--page .bizim-hd__title {
+  font-size: 15px !important;
+  margin: 0 0 2px 0 !important;
+}
+
+.bizim-hd--page .bizim-hd__grid { gap: 10px !important; }
+
+.bizim-hd--page .bizim-hd__level {
+  height: 48px !important;
+  font-size: 15px !important;
+  border-radius: 10px !important;
+}
+
+.bizim-hd--page .bizim-hd__custom {
+  height: 52px !important;
+  border-radius: 10px !important;
+  padding: 0 14px !important;
+}
+
+.bizim-hd--page .bizim-hd__symbol,
+.bizim-hd--page .bizim-hd__input { font-size: 15px !important; }
+
+.bizim-hd--page .bizim-hd__submit {
+  font-size: 16px !important;
+  padding: 16px 26px !important;
+  border-radius: 12px !important;
+}
+
+.bizim-hd--page .bizim-hd__secure { font-size: 13px !important; }
+
+@media (max-width: 478px) {
+  .bizim-hd--page .bizim-hd__level { height: 42px !important; font-size: 14px !important; }
+  .bizim-hd--page .bizim-hd__custom { height: 46px !important; }
+  .bizim-hd--page .bizim-hd__submit { font-size: 15px !important; padding: 14px 16px !important; }
+}

@@ -1,0 +1,59 @@
+/* Country chip — [bizim_country]. */
+.bizim-country { display: inline-flex; align-items: center; gap: 6px; width: fit-content; font-size: 13px; font-weight: 600; line-height: 1; color: #244594; text-decoration: none; background: #eff6ff; border: 1px solid #dbe6ff; padding: 4px 12px 4px 4px; border-radius: 999px; margin: 0 0 10px; }
+.bizim-country:hover { background: #dbe6ff; }
+.bizim-country-flag { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; display: inline-flex; align-items: center; justify-content: center; background: #fff; }
+.bizim-country-flag--ph { font-size: 14px; }
+/* Country filter bar — [bizim_country_filter]. */
+.bizim-country-filter { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; align-items: center; margin: 0 0 30px; }
+.bizim-cf-item { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px; border: 1px solid #e5e7eb; background: #fff; color: #244594; font-weight: 600; font-size: 14px; text-decoration: none; transition: background 0.15s, border-color 0.15s, color 0.15s; }
+.bizim-cf-item img { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; }
+.bizim-cf-item:hover { border-color: #244594; }
+.bizim-cf-item.is-active { background: #244594; color: #fff; border-color: #244594; }
+@media (max-width: 600px) { .bizim-cf-item { padding: 7px 13px; font-size: 13px; } }
+
+/* Country Filter Bar — Scoped Bricks Styling */
+.bizim-country-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Filter Item Pills */
+.bizim-country-filter .brx-option-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #244594;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  cursor: pointer;
+}
+
+/* Hover State */
+.bizim-country-filter .brx-option-text:hover {
+  border-color: #244594;
+}
+
+/* Active / Selected Pill State */
+.bizim-country-filter input:checked + .brx-option-text,
+.bizim-country-filter .brx-option.is-active .brx-option-text {
+  background: #244594;
+  color: #ffffff;
+  border-color: #244594;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .bizim-country-filter .brx-option-text {
+    padding: 7px 13px;
+    font-size: 13px;
+  }
+}

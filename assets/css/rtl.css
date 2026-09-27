@@ -1,0 +1,142 @@
+/* ==========================================================================
+   RTL (Arabic) corrections - loaded only when is_rtl().
+
+   The site was built left-to-right and Bricks stores physical left/right
+   offsets, which do not mirror when the document direction flips. Every rule
+   here is scoped to [dir="rtl"] so the Turkish site is never affected.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Cairo for Arabic. Lato contains no Arabic glyphs, so Arabic text was
+      falling back to a system font. Icon fonts are excluded or their glyphs
+      would turn into boxes.
+   -------------------------------------------------------------------------- */
+[dir="rtl"] body,
+[dir="rtl"] :where(h1, h2, h3, h4, h5, h6, p, a, li, label, button, input, select, textarea, blockquote, figcaption),
+[dir="rtl"] [class*="brxe-"]:not(.brxe-icon):not(.brxe-icon *) {
+  font-family: 'Cairo', sans-serif !important;
+}
+
+[dir="rtl"] i,
+[dir="rtl"] .brxe-icon,
+[dir="rtl"] .brxe-icon *,
+[dir="rtl"] [class*="fa-"],
+[dir="rtl"] [class*="ion-"],
+[dir="rtl"] [class*="ti-"],
+[dir="rtl"] [class*="themify"],
+[dir="rtl"] [class*="give-icon"] {
+  font-family: revert !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. Numbers must stay left-to-right. In an RTL context the bidi algorithm
+      reorders grouped digits, so 25.000 renders as 000.52 and 800 as 008.
+      :has() lifts the whole counter row so the number keeps its trailing "+".
+   -------------------------------------------------------------------------- */
+[dir="rtl"] .bizim-count,
+[dir="rtl"] .bizim-count *,
+[dir="rtl"] .bizim-mile-plus,
+[dir="rtl"] .odometer,
+[dir="rtl"] .bizim-hd__level,
+[dir="rtl"] .bizim-hd__custom,
+[dir="rtl"] .bizim-prog-amt,
+[dir="rtl"] .iban-text {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+}
+
+[dir="rtl"] *:has(> .bizim-count) {
+  direction: ltr !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Hero: the donation card is pinned with right:5%, which in RTL lands on
+      top of the Arabic headline. Mirror it to the left.
+   -------------------------------------------------------------------------- */
+[dir="rtl"] #brxe-ckjbyc {
+  right: auto !important;
+  left: 5% !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. Slider arrows. Bricks emits physical left/right offsets, so in RTL both
+      arrows end up over-constrained on the same side and overlap.
+   -------------------------------------------------------------------------- */
+[dir="rtl"] .splide__arrow--prev {
+  left: auto !important;
+  right: 1em !important;
+}
+
+[dir="rtl"] .splide__arrow--next {
+  right: auto !important;
+  left: 1em !important;
+}
+
+[dir="rtl"] #brxe-dwgoqv .splide__arrow--prev { right: 2px !important; }
+[dir="rtl"] #brxe-dwgoqv .splide__arrow--next { left: 2px !important; }
+
+[dir="rtl"] #brxe-dujwki .splide__arrow--prev { right: -6% !important; }
+[dir="rtl"] #brxe-dujwki .splide__arrow--next { left: -5% !important; }
+
+/* --------------------------------------------------------------------------
+   5. Pre-footer: the image is nudged with right:5% and the text block padded
+      on the left. Both need mirroring or the image overflows and the text
+      loses its inset.
+   -------------------------------------------------------------------------- */
+[dir="rtl"] #brxe-sgdvqk {
+  right: auto !important;
+  left: 5% !important;
+}
+
+[dir="rtl"] #brxe-pzasgj {
+  padding-left: 0 !important;
+  padding-right: 5rem !important;
+}
+
+@media (max-width: 478px) {
+  /* The card stacks into a single column on phones, so the 5rem side inset the
+     desktop layout needs (to clear the image) just pushes the text off-centre.
+     Even padding on both sides instead, plus breathing room above the image. */
+  [dir="rtl"] #brxe-pzasgj {
+    padding: 1rem 1.25rem !important;
+  }
+
+  [dir="rtl"] #brxe-xhndao {
+    padding-top: 1.5rem !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Phone numbers, IBANs and e-mail must not be reordered by the bidi
+      algorithm - "+90 505 596 07 79" otherwise renders as "5055960779 90+".
+   -------------------------------------------------------------------------- */
+[dir="rtl"] a[href^="tel:"],
+[dir="rtl"] a[href^="mailto:"],
+[dir="rtl"] #brxe-8ff3f3,
+[dir="rtl"] #brxe-5cefa4,
+[dir="rtl"] .iti,
+[dir="rtl"] .iti input {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  text-align: right !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   7. The donate button and amount picker hard-code Lato with !important in
+      their own component CSS, which outranks the general Cairo rule above.
+   -------------------------------------------------------------------------- */
+/* Bricks writes per-element rules such as
+   #brxe-dqjxvv button { font-family: Lato !important }
+   An id beats a class even when both are !important, so :not(#\9) is used to
+   lift these selectors above id specificity without matching anything real. */
+[dir="rtl"] .bizim-donate-btn:not(#\9),
+[dir="rtl"] .bizim-donate-btn:not(#\9) *,
+[dir="rtl"] .bizim-hd:not(#\9),
+[dir="rtl"] .bizim-hd:not(#\9) *,
+[dir="rtl"] .bizim-header-cta:not(#\9),
+[dir="rtl"] .bizim-cta-btn:not(#\9),
+[dir="rtl"] .bizim-prog:not(#\9),
+[dir="rtl"] .bizim-prog:not(#\9) * {
+  font-family: 'Cairo', sans-serif !important;
+}

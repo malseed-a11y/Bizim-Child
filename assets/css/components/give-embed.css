@@ -1,0 +1,9 @@
+/* GiveWP inline embeds: hide the iframe until its form has rendered.
+   The iframe's own document is white, so an unrevealed iframe would paint a white box. */
+.root-data-givewp-embed iframe {
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.brxe-shortcode.is-form-ready .root-data-givewp-embed iframe {
+  opacity: 1;
+}

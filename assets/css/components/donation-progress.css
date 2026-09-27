@@ -1,0 +1,7 @@
+/* Donation progress bar — output of [bizim_progress]. */
+.bizim-prog { display: flex !important; flex-direction: column !important; gap: 8px !important; width: 100% !important; }
+.bizim-prog-row { display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important; white-space: nowrap !important; gap: 8px !important; width: 100% !important; font-size: 12px !important; }
+.bizim-prog-pct { font-weight: 800 !important; font-size: 12px !important; color: #244594 !important; flex-shrink: 0 !important; }
+.bizim-prog-amt { font-size: 12px !important; color: #64748b !important; flex-shrink: 0 !important; }
+.bizim-prog-track { width: 100% !important; height: 10px !important; background: #eef2f6 !important; border-radius: 9999px !important; overflow: hidden !important; position: relative !important; }
+.bizim-prog-fill { display: block !important; height: 100% !important; width: var(--pct, 0%) !important; background: #244594 !important; border-radius: 9999px !important; margin-left: 0 !important; margin-right: auto !important; }

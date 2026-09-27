@@ -1,0 +1,51 @@
+/* Card Container */
+.bizim-story-verify {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  width: 100%;
+  padding: 8px 16px !important; /* Main vertical & horizontal cushion */
+  gap: 16px;
+}
+
+/* Text Box + Blue Accent Line */
+.bizim-story-verify > div:first-child {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 8px 16px !important; /* Breathing room around text */
+  
+  /* Logical border: attaches left in LTR, right in RTL */
+  border-left: none !important;
+  border-inline-start: 4px solid #244594 !important;
+  border-radius: 4px; /* Softens the accent line ends */
+}
+
+/* Verify Icon Sizing & Padding */
+.bizim-verify-icon {
+  flex: 0 0 auto;
+  width: 32px !important;
+  height: 32px !important;
+  margin: 0 !important;
+  padding-inline-start: 12px !important; /* Padding between outer edge and icon */
+}
+
+/* Explicit RTL Overrides */
+html[dir="rtl"] .bizim-story-verify > div:first-child {
+  border-left: none !important;
+  border-right: 4px solid #244594 !important;
+  text-align: right;
+  padding-right: 16px !important;
+  padding-left: 0 !important;
+}
+
+html[dir="rtl"] .bizim-verify-icon {
+  margin: 0 !important;
+  padding-right: 12px !important;
+  padding-left: 0 !important;
+}

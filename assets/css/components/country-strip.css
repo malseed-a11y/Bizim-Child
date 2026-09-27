@@ -1,0 +1,114 @@
+/* ==========================================================================
+   Country Strip Section (Flex Layout)
+   - Border-top removed
+   - SVG Maps enlarged and colored in Primary Blue (#244594)
+   - Hover: Smooth background & border darkening (Zero movement / translateY)
+   ========================================================================== */
+
+/* Main Container Strip */
+.bizim-country-strip {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: space-between !important;
+  align-items: stretch !important;
+  gap: 14px !important;
+ 
+  padding: 18px 24px !important;
+  background: #ffffff !important;
+  border-top: none !important; /* Removed border-top */
+}
+
+/* Individual Country Card */
+.bizim-country-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 1 0px !important;
+  min-width: 0 !important;
+  gap: 12px !important;
+  padding: 22px 12px !important;
+  border-radius: 14px !important;
+  background: #F8FAFC !important; /* Soft neutral base */
+  border: 1px solid rgba(156, 163, 175, 0.25) !important;
+  text-decoration: none !important;
+  /* Smooth color transition only — no position movement */
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Subtle Darkening on Hover (No Floating/Translating) */
+.bizim-country-item:hover {
+  background: #EBF3FE !important; /* Richer blue-tinted background */
+  border-color: rgba(36, 69, 148, 0.4) !important; /* Darker blue border */
+  box-shadow: 0 4px 14px rgba(36, 69, 148, 0.08) !important; /* Soft inset depth */
+}
+
+/* Larger SVG Maps (Recolored to Blue #244594) */
+.bizim-country-flagimg,
+.bizim-country-flagimg img {
+  display: block !important;
+  width: 76px !important;  /* Increased map width */
+  height: 62px !important; /* Increased map height */
+  object-fit: contain !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  /* Filter forces purple/any SVG map to Primary Blue #244594 */
+  filter: brightness(0) saturate(100%) invert(21%) sepia(59%) saturate(2462%) hue-rotate(206deg) brightness(91%) contrast(92%) !important;
+  transition: filter 0.3s ease !important;
+}
+
+/* Map slightly deepens blue tone on hover */
+.bizim-country-item:hover .bizim-country-flagimg img,
+.bizim-country-item:hover .bizim-country-flagimg {
+  filter: brightness(0) saturate(100%) invert(18%) sepia(65%) saturate(3000%) hue-rotate(206deg) brightness(85%) contrast(98%) !important;
+}
+
+/* Text Label */
+.bizim-country-label {
+  font-family: 'Lato', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  line-height: 1.2 !important;
+  color: #244594 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  width: 100% !important;
+  transition: color 0.3s ease !important;
+}
+
+.bizim-country-item:hover .bizim-country-label {
+  color: #1D3777 !important; /* Slightly darker blue label on hover */
+}
+
+/* ==========================================================================
+   Mobile Breakpoint (2 Columns with Wrap)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .bizim-country-strip {
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    padding: 14px !important;
+  }
+
+  .bizim-country-item {
+    flex: 0 0 calc(50% - 5px) !important;
+    max-width: calc(50% - 5px) !important;
+    padding: 16px 8px !important;
+  }
+
+  .bizim-country-flagimg,
+  .bizim-country-flagimg img {
+    width: 58px !important;
+    height: 48px !important;
+  }
+
+  .bizim-country-label {
+    font-size: 13px !important;
+  }
+}

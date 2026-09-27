@@ -1,0 +1,95 @@
+/* Remove aggressive height expansion from inner wrapper */
+.bizim-post-card .brxe-eohjxq {
+  height: auto !important;
+  flex: 1 1 auto !important;
+}
+
+/* Reduce image height slightly on mobile so cards stay compact */
+@media (max-width: 478px) {
+  .bizim-post-card .brxe-lssmob,
+  .bizim-post-card .brxe-thtikq img {
+    height: 160px !important;
+    min-height: 160px !important;
+  }
+}
+
+/* Control content spacing cleanly without giant gaps */
+.bizim-post-card .brxe-gbrfbk {
+  flex-grow: 0 !important; /* Stop description from pushing things down aggressively */
+  margin-bottom: 12px !important;
+}
+
+/* Keep button and progress bar pinned naturally at the bottom */
+.bizim-post-card .brxe-kqyrzb {
+  margin-top: auto !important;
+}
+.bizim-post-card .bizim-donate-btn--primary,
+.bizim-post-card .bizim-donate-btn--secondary {
+  width: 100% !important;
+  margin-top: 1rem !important;
+}
+/* 1. Outer Wrappers (Primary Yellow & Secondary Grey) ===================*/
+div.bizim-donate-btn--primary,
+div.bizim-donate-btn--secondary {
+  display: block !important;
+  width: 100% !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  box-shadow: none !important;
+  border: none !important;
+  transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Primary Yellow Wrapper */
+div.bizim-donate-btn--primary {
+  background-color: #f5b82e !important;
+}
+
+div.bizim-donate-btn--primary:hover {
+  background-color: #e0a520 !important;
+}
+
+/* Secondary Grey Wrapper */
+div.bizim-donate-btn--secondary {
+  background-color: #f4f4f6 !important;
+}
+
+div.bizim-donate-btn--secondary:hover {
+  background-color: #e8e8ec !important;
+}
+
+/* 2. Inner Button Style Reset */
+.bizim-donate-btn--primary button,
+.bizim-donate-btn--secondary button,
+button.bizim-donate-btn {
+  display: block !important;
+  width: 100% !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  padding: 14px 20px !important;
+  cursor: pointer !important;
+  text-align: center !important;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* 3. Inner Text Colors */
+.bizim-donate-btn--primary button,
+.bizim-donate-btn--primary button.bizim-donate-btn {
+  color: #1e293b !important;
+}
+
+.bizim-donate-btn--secondary button,
+.bizim-donate-btn--secondary button.bizim-donate-btn {
+  color: #244594 !important;
+}
+
+/* 4. Button Hover Micro-Animation */
+.bizim-donate-btn--primary:hover button,
+.bizim-donate-btn--secondary:hover button {
+  transform: translateY(-1px) !important;
+}
